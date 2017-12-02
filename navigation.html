@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	
+	<title>Navbar examples</title>
+</head>
+
+<style>
+    @media (min-width: 576px)  { .bg {background-color:aqua; color:darkred;}}
+
+    @media (min-width: 768px) { .bg{background-color:bisque; color:brown;}}
+
+    @media (min-width: 992px) { .bg{background-color:cadetblue; color:brown; }}
+
+    @media (min-width: 1200px) { .bg{background-color:blanchedalmond; color:brown; }}
+    .abcd{
+        background-color:aqua;
+    }
+
+    .bg{
+        padding:2%;
+    }
+ </style>
+<body class="bg">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
+    <div class="container">
+        <div class="navbar-header" > 
+            <a href="#" class="navbar-brand"> XYZ </a>
+            <button class="navbar-toggle navbar-right" data-toggle="collapse" id="menu" data-target="#menu_options"> 
+            <span class="glyphicon glyphicon-menu-hamburger">  </span>  </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="menu_options">    
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"> <a href="#first_tab" data-toggle="tab"> Hello start here </a> </li>
+                <li> <a href="#second_tab" data-toggle="tab"> Downloads  </a></li>
+                <li> <a href="#third_tab" data-toggle="tab"> Classes  </a></li>
+                <li> <a href="#fourth_tab" data-toggle="tab"> Syllabus  </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
