@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	
+    <title>Test All Your Example Here</title>
+
+    <style>
+    .header {
+ width: 800px;
+ height: 80px;
+ text-align: center;
+ background-color: #BDBDBD;
+}
+.footer {
+ background-color: #BDBDBD;
+ text-align: center;
+}
+.leftMenu {
+ height: 500px;
+ background-color: #D8D8D8;
+ width: 150px;
+}
+.mainContent {
+ height: 500px;
+ background-color: #E6E6E6;
+ width: 650px;
+}
+a{
+ display:block;
+ padding:5px
+}
+    </style>
+  </head>
+<body>
+
+<div class="container" ng-controller="myController" style="margin:2%"> 
+
+<table style="font-family: Arial">
+    <tr>
+        <td colspan="2" class="header">
+        <h1>
+        WebSite Header
+        </h1>
+        </td>
+    </tr>
+    <tr>
+        <td class="leftMenu">
+        <a href="#/home">Home</a>
+        <a href="#/courses">Courses</a>
+        <a href="#/students">Students</a>
+        </td>
+        <td class="mainContent">
+        <ng-view></ng-view>
+        </td>
+    </tr>
+        <tr>
+        <td colspan="2" class="footer">
+        <b>Website Footer</b>
+        </td>
+        </tr>
+</table>
+
+
+</div>
+
+
+<script src="js/angular.min.js"> </script>
+<script> 
+    var myApp = angular.module("myModule",[]);
+    myApp.controller("myController", function ($scope) 
+    { 
+        var employees = 
+    [ 
+        { name: "Ben", dateOfBirth: new Date("November 23, 1980"), gender: "Male", salary: 55000 }, 
+        { name: "David", dateOfBirth: new Date("May 05, 1970"), gender: "Male", salary: 68000 }, 
+        { name: "Chris", dateOfBirth: new Date("August 15, 1974"), gender: "Male", salary: 57000 }, 
+        { name: "Alex", dateOfBirth: new Date("October 27, 1979"), gender: "Female", salary: 53000 }, 
+        { name: "Amy", dateOfBirth: new Date("December 30, 1983"), gender: "Female", salary: 60000 } 
+    ]; 
+        
+        $scope.employees = employees; 
+        $scope.rowCount=5;
+        $scope.sortColumn = "name";
+        $scope.reverseSort = false; 
+        $scope.sortData = function (column) 
+        { 
+        $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false; 
+        $scope.sortColumn = column; 
+        } 
+        
+        $scope.getSortClass = function (column) 
+        { 
+            if ($scope.sortColumn == column) 
+            { 
+                return $scope.reverseSort ? 'arrow-down' : 'arrow-up'; 
+            } 
+            return ''; 
+        }
+
+        
+    });
+
+</script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
