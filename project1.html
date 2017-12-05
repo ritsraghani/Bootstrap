@@ -177,7 +177,9 @@
 
 
 <!-- Gallery-->
-<div class="container" style="padding:2%">
+
+<div class="container" style="margin:2%">
+    <h2 class="page-header">Gallery</h2>
 	<div class="carousel slide" data-ride="carousel" id="slider">
 		<ol class="carousel-indicators">
 			<li class="active" data-target="#slider" data-slide-to="0">  </li>
@@ -227,13 +229,15 @@
 
 
 <!-- Tabs Nav bar and Tab Content-->
-<ul class="nav nav-tabs nav-justified">
-        <li class="active"> <a href="#first_tab" data-toggle="tab"> Specifications </a> </li>
-        <li> <a href="#second_tab" data-toggle="tab"> General  </a></li>
-        <li> <a href="#third_tab" data-toggle="tab"> Connectivity  </a></li>
-        <li> <a href="#fourth_tab" data-toggle="tab"> Sensors  </a></li>
-</ul>
-    
+<div class="container">
+    <h2 class="page-header">More Info &nbsp;<small>Here's Something more to read about</small></h2>
+    <ul class="nav nav-tabs nav-justified">
+            <li class="active"> <a href="#first_tab" data-toggle="tab"> Specifications </a> </li>
+            <li> <a href="#second_tab" data-toggle="tab"> General  </a></li>
+            <li> <a href="#third_tab" data-toggle="tab"> Connectivity  </a></li>
+            <li> <a href="#fourth_tab" data-toggle="tab"> Sensors  </a></li>
+    </ul>
+</div>    
 <div class="tab-content" style="margin:2%;">
     
     <div class="tab-pane active" id="first_tab">
@@ -302,11 +306,54 @@
     </div>
 </div>
 
-
-
-
+<!--Contact us form -->
+<div class="container">
+    <div class="container">
+        <h2 class="page-header"> Contact Us  &nbsp;<small>Let's Get In Touch</small></h2>
+    </div>
+    <div class="container col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        To send us a message use the contact form or the information below.
+        <div class="container" id="map" style="width:50%; height:50%;">
+            <src ="https://goo.gl/maps/rtg8tuZtLyG2"></src>
+        </div>
+    </div>
+    <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Enter Your Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email Address:</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="website">Website:</label>
+                <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="website" placeholder="Copy your website URL">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="website">Message:</label>
+                <div class="col-sm-10"> 
+                <textarea class="form-control" rows="4" id="website" placeholder="Enter Your Message">
+                </textarea>
+                </div>
+            </div>
+            <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script src="js/jquery-2.2.4.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
 </body>
 </html>
