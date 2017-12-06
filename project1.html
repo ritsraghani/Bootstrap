@@ -4,11 +4,27 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css" >
-	
-	<title>Project 1</title>
+    <link rel="stylesheet" href="css/project1css.css">
+    <title>Project 1</title>
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body class="bg">
+    <script>
+
+        //  $(document).ready(function () { console.log("I'm here");});
+        
+        $('a').click(function (e) {
+                console.log("Hello");
+                e.preventDefault();
+                $('ul.nav > li').removeClass('active');
+                $(this).addClass('active');
+                $(this).addClass('currentLink');
+                
+            });
+        
+    </script>
 
 <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
     <div class="container">
@@ -20,10 +36,10 @@
 
         <div class="navbar-collapse collapse" id="menu_options">    
             <ul class="nav navbar-nav">
-                <li class="active"> <a href="#testimonials"> Testimonials </a> </li>
-                <li> <a href="#features"> Features  </a></li>
-                <li> <a href="#gallery"> Gallery  </a></li>
-                <li> <a href="#contact_form"> Contact Us  </a></li>
+                <li> <a href="#testimonials" class="navbar_links"> Testimonials </a> </li>
+                <li> <a href="#features" class="navbar_links"> Features  </a></li>
+                <li> <a href="#gallery" class="navbar_links"> Gallery  </a></li>
+                <li> <a href="#contact_form" class="navbar_links"> Contact Us  </a></li>
             </ul>
 
             <form class="navbar-form navbar-right">
@@ -162,7 +178,7 @@
 
 
 <!--Subscribtion form -->
-<div id="contact_form" class="well well-default text-center">
+<div class="well well-default text-center">
     <h4>Subscribe now for 30-days trail</h4>
     <small>Enter Your Name and Email below</small>
     <form class="form-inline">
@@ -306,7 +322,7 @@
 </div>
 
 <!--Contact us form -->
-<div class="container">
+<div class="container" id="contact_form">
     <div class="container">
         <h2 class="page-header"> Contact Us  &nbsp;<small>Let's Get In Touch</small></h2>
     </div>
@@ -316,7 +332,7 @@
             <src ="https://goo.gl/maps/rtg8tuZtLyG2"></src>
         </div>
     </div>
-    <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12" id="contact_form">
+    <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="name">Name:</label>
@@ -352,7 +368,6 @@
     </div>
 </div>
 
-<script src="js/jquery-2.2.4.js"></script>
-<script src="js/bootstrap.min.js" ></script>
+
 </body>
 </html>
