@@ -14,6 +14,37 @@
 
 <body class="bg">
 
+    <script>
+    // var selector = '.nav li';
+    //     $(selector).on('click', function () {
+    //         $(selector).removeClass('active');
+    //         $(this).addClass('active1');
+    //     });
+
+    // $('#links a').click(function (e) {
+    //     console.log("Hello");
+    //         e.preventDefault();
+    //         $('#links a').removeClass('active');
+    //         $(this).addClass('active');
+    //     });
+
+
+    // function active(e) {
+    //         $('.active').each(function (i) {
+    //         i.removeClass('active');
+    //         });
+    //         e.addClassName('active');
+    //     };
+
+     $(document).ready(
+            function () {
+                $("a").click(function () {
+                    $("a").removeClass("active");
+                    $(this).addClass("active");
+                });
+            }
+        )
+    </script>
     <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
         <div class="container">
             <div class="navbar-header">
