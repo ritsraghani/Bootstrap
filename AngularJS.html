@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"> </script>
+    <title>Angular JS project</title>
+</head>
+
+<body ng-controller="myController">
+<div class="container text-center">
+
+    <h2>Admin Panel</h2>
+
+</div>
+<div class="container" style=" margin-left: 20px; margin-right: 20px;">
+<div class="container col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <h3>Fill out the form</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="name" placeholder="Enter Your Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="dob">DOB:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="dob" placeholder="Enter DOB">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="mobile_no">Phone:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="mobile_no" placeholder="Enter Your number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="salary">Salary:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="salary" placeholder="Salary">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="city">City:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="city" placeholder="Enter your city name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12" >
+    <h3>Employees Table:</h3>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Email ID</th>
+            <th>Mobile No</th>
+            <th>Salary</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in employees">
+            <td> {{ employee.employee_name | uppercase }} </td>
+            <td> {{ employee.dob | date:"dd/MM/yyyy" }} </td>
+            <td> {{ employee.email }} </td>
+            <td> {{ employee.mobile_no }} </td>
+            <td> {{ employee.salary | currency : "£" : 1 }} </td>
+            <td> {{ employee.city}} </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+
+<script>
+    var app=angular.module("myModule", [])
+     app.controller("myController", function ($scope,$http) {
+
+        $http.get("data.php")
+        .then(function(response){
+            $scope.employees = response.data;
+        });
+
+        $scope.displayData=function(){
+            $http.get("data.php")
+            .success(function(data){
+                $scope.names=data;
+            })
+        }
+     });
+</script>
+</body>
+
+</html>
