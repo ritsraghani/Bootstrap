@@ -12,6 +12,11 @@
 </head>
 
 <body ng-controller="myController">
+    <style>
+        .nowrap{
+             white-space:nowrap;
+        }
+    </style>
 <div class="container text-center">
 
     <h2>Admin Panel</h2>
@@ -24,42 +29,42 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="name" placeholder="Enter Your Name">
+                <input ng-model="tempUser.emname" type="text" class="form-control" id="name" placeholder="Enter Your Name">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="dob">DOB:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="dob" placeholder="Enter DOB">
+                <input ng-model="tempUser.emdob" type="text" class="form-control" id="dob" placeholder="Enter DOB">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                <input ng-model="tempUser.ememail" type="email" class="form-control" id="email" placeholder="Enter email">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="mobile_no">Phone:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="mobile_no" placeholder="Enter Your number">
+                <input ng-model="tempUser.emmobile" type="text" class="form-control" id="mobile_no" placeholder="Enter Your number">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="salary">Salary:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="salary" placeholder="Salary">
+                <input ng-model="tempUser.emsalary" type="text" class="form-control" id="salary" placeholder="Salary">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="city">City:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="city" placeholder="Enter your city name">
+                <input ng-model="tempUser.emcity" type="text" class="form-control" id="city" placeholder="Enter your city name">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-8">
-                <button type="submit" class="btn btn-success">Save</button>
+                <button ng-click="insertData()" type="submit" class="btn btn-success">Save</button>
             </div>
         </div>
     </form>
@@ -67,7 +72,7 @@
 
 <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12" >
     <h3>Employees Table:</h3>
-<table class="table table-responsive">
+<table class="table table-responsive nowrap">
     <thead>
         <tr>
             <th>Name</th>
@@ -76,6 +81,7 @@
             <th>Mobile No</th>
             <th>Salary</th>
             <th>City</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -86,26 +92,52 @@
             <td> {{ employee.mobile_no }} </td>
             <td> {{ employee.salary | currency : "£" : 1 }} </td>
             <td> {{ employee.city}} </td>
+            <td><span class="glyphicon glyphicon-eye-open"></span> |
+            <span class="glyphicon glyphicon-pencil"></span> |
+        <span class="glyphicon glyphicon-trash"></span> </td>
         </tr>
     </tbody>
 </table>
 </div>
 </div>
-<div></div>
+
 
 <script>
     var app=angular.module("myModule", [])
      app.controller("myController", function ($scope,$http) {
 
+        $scope.tempUser={}
+
         $http.get("data.php")
         .then(function(response){
-            $scope.employees = response.data;
+        $scope.employees = response.data;
         });
 
         $scope.displayData=function(){
             $http.get("data.php")
-            .success(function(data){
-                $scope.names=data;
+            .then(function(data){
+                $scope.employees=data.data;
+            });
+        }
+
+        $scope.insertData=function(){
+            console.log("I'm here");
+            $http.post("insert.php",
+            {'name':$scope.tempUser.emname,
+             'dob':$scope.tempUser.emdob,
+             'emailid': $scope.tempUser.ememail,
+             'mobile': $scope.tempUser.emmobile,
+             'salary': $scope.tempUser.emsalary,
+             'city': $scope.tempUser.emcity }
+            ).then(function(response){
+                console.log(response.data);
+                $scope.tempUser.emname = null;
+                $scope.tempUser.emdob = null;
+                $scope.tempUser.ememail = null;
+                $scope.tempUser.emmobile = null;
+                $scope.tempUser.emsalary = null;
+                $scope.tempUser.emcity = null; 
+                $scope.displayData();
             })
         }
      });
