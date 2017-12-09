@@ -2,8 +2,8 @@
 <html lang="en" ng-app="myModule">
 
 <head>
-    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+    <!-- <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" /> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,6 +18,10 @@
         .nowrap{
              white-space:nowrap;
         }
+        .table-striped{
+            background-color: #e7e7e7;
+        }
+       
     </style>
 <div class="container text-center">
 
@@ -66,17 +70,22 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-8">
-                <button ng-click="insertData()" type="submit" class="btn btn-success">Save</button>
+                <button ng-click="insertData()" ng-hide="tempUser.id" type="submit" class="btn btn-success">Save</button>
+                <button ng-click="updateData()" ng-hide="!tempUser.id" type="submit" class="btn btn-primary">update</button>
             </div>
         </div>
+       
+           
+        
     </form>
 </div>
 
 <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12" >
     <h3>Employees Table:</h3>
-<table class="table table-responsive nowrap">
+<table class="table table-responsive nowrap table-striped table-bordered table-hover">
     <thead>
         <tr>
+            <!-- <th>ID</th> -->
             <th>Name</th>
             <th>Date of Birth</th>
             <th>Email ID</th>
@@ -88,19 +97,47 @@
     </thead>
     <tbody>
         <tr ng-repeat="employee in employees">
+            <!-- <td>{{employee.id}}</td> -->
             <td> {{ employee.employee_name | uppercase }} </td>
             <td> {{ employee.dob | date:"dd/MM/yyyy" }} </td>
             <td> {{ employee.email }} </td>
             <td> {{ employee.mobile_no }} </td>
             <td> {{ employee.salary | currency : "£" : 1 }} </td>
             <td> {{ employee.city}} </td>
-            <td><span class="glyphicon glyphicon-eye-open"></span> |
-            <span class="glyphicon glyphicon-pencil"></span> |
-        <span class="glyphicon glyphicon-trash"></span> </td>
+            <td><a href="" ng-click="viewData(employee)"><span class="glyphicon glyphicon-eye-open"></span> </a> |
+            <a href="" ng-click="edit(employee)"><span class="glyphicon glyphicon-pencil"></span> </a> |
+        <a href="" ng-click="deleteData(employee.id)"><span class="glyphicon glyphicon-trash"></span> </a> </td>
         </tr>
     </tbody>
 </table>
 </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="emp_profile">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color:blueviolet;">Employee Profile</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+               <tr> <td> Employee Name : </td><td style="color:blueviolet"> {{temp.emname}}</td></tr>
+               <tr> <td>  Employee DOB : </td><td style="color:blueviolet"> {{temp.emdob}}</td></tr>
+               <tr> <td>  Employee Email : </td><td style="color:blueviolet">{{temp.ememail }}</td></tr>
+               <tr> <td>  Employee Mobile : </td><td style="color:blueviolet">{{temp.emmobile}}</td></tr>
+               <tr> <td>  Employee Salary : </td><td style="color:blueviolet">{{temp.emsalary}} </td></tr>
+               <tr> <td>  Employee City : </td><td style="color:blueviolet"> {{temp.emcity}}</td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" style="color:#8a2be2">Save changes</button>
+                <button type="button" class="btn" style="color:blueviolet" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -109,7 +146,6 @@
      app.controller("myController", function ($scope,$http) {
 
         $scope.tempUser={}
-
         $http.get("data.php")
         .then(function(response){
         $scope.employees = response.data;
@@ -143,9 +179,10 @@
             })
         }
 
-        $scope.edit = function(x){
-            alert(x);
+        $scope.edit = function(employee){
+            alert(employee);
             $scope.tempUser = {
+                id: employee.id,
                 emname : employee.employee_name,
                 emdob : employee.dob,
                 ememail : employee.email,
@@ -153,7 +190,60 @@
                 emsalary: employee.salary,
                 emcity : employee.city
             };
+           
         }
+
+        $scope.updateData = function () {
+             console.log("I'm here update function");
+             
+             $http.post("update.php",
+                 {
+                    'id':$scope.tempUser.id,
+                    'name': $scope.tempUser.emname,
+                    'dob': $scope.tempUser.emdob,
+                    'emailid': $scope.tempUser.ememail,
+                    'mobile': $scope.tempUser.emmobile,
+                    'salary': $scope.tempUser.emsalary,
+                    'city': $scope.tempUser.emcity
+                 }
+             ).then(function (data) {
+                //  alert(data.data);
+                 // console.log(response.data);
+                $scope.tempUser.emname = null;
+                $scope.tempUser.emdob = null;
+                $scope.tempUser.ememail = null;
+                $scope.tempUser.emmobile = null;
+                $scope.tempUser.emsalary = null;
+                $scope.tempUser.emcity = null;
+                $scope.displayData();
+             })
+        }
+
+        $scope.deleteData = function (x) {
+            
+            $http.post("delete.php",
+                {'id': x, }
+            ).then(function (data) {
+              $scope.displayData();
+            })
+        }
+        $scope.viewData = function (employee) {
+        // alert(employee);
+        // console.log(employee);
+        var temp={};
+        $scope.temp = {
+                id: employee.id,
+                emname: employee.employee_name,
+                emdob: employee.dob,
+                ememail: employee.email,
+                emmobile: employee.mobile_no,
+                emsalary: employee.salary,
+                emcity: employee.city
+            };
+        $("#emp_profile").modal('show');
+        // $("#emp_profile modal-content modal-body").html('<h1>Hello Modal</h1>');
+         
+        }         
      });
 </script>
 </body>
