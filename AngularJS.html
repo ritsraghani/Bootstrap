@@ -2,6 +2,8 @@
 <html lang="en" ng-app="myModule">
 
 <head>
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -130,7 +132,7 @@
              'salary': $scope.tempUser.emsalary,
              'city': $scope.tempUser.emcity }
             ).then(function(response){
-                console.log(response.data);
+                // console.log(response.data);
                 $scope.tempUser.emname = null;
                 $scope.tempUser.emdob = null;
                 $scope.tempUser.ememail = null;
@@ -139,6 +141,18 @@
                 $scope.tempUser.emcity = null; 
                 $scope.displayData();
             })
+        }
+
+        $scope.edit = function(x){
+            alert(x);
+            $scope.tempUser = {
+                emname : employee.employee_name,
+                emdob : employee.dob,
+                ememail : employee.email,
+                emmobile: employee.mobile_no,
+                emsalary: employee.salary,
+                emcity : employee.city
+            };
         }
      });
 </script>
