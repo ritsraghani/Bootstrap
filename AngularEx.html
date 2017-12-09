@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	
+	<title>Test All Your Example Here</title>
+</head>
+<body>
+
+
+
+<div class="container" ng-controller="myController" style="margin:2%"> 
+    
+    <div>10+20={{10+20}}</div>
+    <div> 10+40={{10+40}}</div>
+    <br>
+
+    <div>
+        <form> 
+        <input class="form-control" type="text" placeholder="Type your message here" ng-model="message" />
+    </form> 
+        <br /><br /> 
+       <h1> {{ message }} </h1> 
+    </div>
+    <br>
+
+    <div>First Name : {{ employee.firstName }}</div> 
+    <div>Last Name : {{ employee.lastName }}</div> 
+    <div>Gender : {{ employee.gender}}</div>
+    <br>
+
+    <div>Country Name : {{ country.name }}</div> 
+    <div> Country Capital : {{ country.capital }}</div> 
+    <div> Flag : <img ng-src="{{country.flag}}"> </div>
+
+    <table class="table table-responsive table-hover"> 
+        <thead> 
+            <tr> 
+                <th>First Name</th> 
+                <th>Last Name</th> 
+                <th>Gender</th> 
+                <th>Salary</th>
+            </tr> 
+        </thead>
+        <tbody> 
+            <tr ng-repeat="employee in employees"> 
+            <td> {{ employee.firstname }} </td> 
+            <td> {{ employee.lastname }} </td> 
+            <td> {{ employee.Gender }} </td> 
+            <td> {{ employee.salary }} </td> 
+            </tr>
+        </tbody>
+    </table> 
+    
+    <ul ng-repeat="country in countries" ng-init="parent =$index">
+        <li>{{country.name}} - ParentIndex = {{$index}}
+            <ul ng-repeat="city in country.cities">
+                <li>{{city.name}} - Index={{$index}}</li>
+            </ul>
+        </li>
+    </ul>
+
+<table class="table table responsive">
+    <tr>
+    <th>Index Value</th>
+    <th class="text-center">Country Name</th>
+    <th class="text-center" colspan="3">Cities</th>
+    </tr>
+
+    <tr ng-repeat="country in countries">
+    <td>     {{$index}}       </td>
+    <td> {{country.name}} - {{$index}} </td>
+    <td ng-repeat="city in country.cities"> {{city.name}} -{{$index}}  </td>
+    </tr>
+</table>
+
+<table class="table table-responsive table-hover"> 
+    <thead> 
+        <tr> 
+            <th>Name</th> 
+            <th>Likes</th> 
+            <th>Dislikes</th> 
+            <th>Like/Dislike</th> 
+        </tr>
+    
+    </thead> 
+    <tbody> 
+        <tr ng-repeat="technology in technologies"> 
+            <td> {{ technology.name }} </td> 
+            <td style="text-align:center"> {{ technology.likes }} </td> 
+            <td style="text-align:center"> {{ technology.dislikes }} </td> 
+            <td> 
+            <button class="btn btn-success" type="button" ng-click="incrementLikes(technology)"><span class="glyphicon glyphicon-thumbs-up"></span> </button> 
+            <button class="btn btn-danger" type="button" ng-click="incrementDislikes(technology)"><span class="glyphicon glyphicon-thumbs-down "></span></button> 
+            </td> 
+            </tr> 
+    </tbody>
+
+
+Rows to display : 
+    <input type="number" step="1" ng-model="rowCount" max="5" min="0" /> 
+    <br /><br />
+<table class="table table-responsive table-hover"> 
+    <thead> 
+        <tr> 
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Salary (number filter)</th>
+            <th>Salary (currency filter)</th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr ng-repeat="employee in employees | limitTo:rowCount"> 
+        <td> {{ employee.name | uppercase }} </td> 
+        <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td> 
+        <td> {{ employee.gender }} </td> 
+        <td> {{ employee.salary | number:2 }} </td> 
+        <td> {{ employee.salary | currency : "£" : 1 }} </td> 
+    </tr> 
+    </tbody> 
+</table>
+
+</div>
+
+<script src="js/angular.min.js"> </script>
+
+<script> 
+    var myApp = angular.module("myModule",[]);
+    myApp.controller("myController", function ($scope) 
+    { 
+    
+    $scope.message = "Angular JavaScript"; 
+    
+    var employee = 
+        {   
+            firstName: 'Ben', 
+            lastName: 'Stokes', 
+            gender: 'Male' 
+        };
+        $scope.employee = employee; 
+    
+
+    var country = 
+        {   
+            name: 'USA', 
+            capital: 'Washington, D.C.', 
+            flag: 'images/javalogo.png' 
+        };
+        $scope.country = country; 
+
+        var employees = [
+        { firstname: "Ben", lastname: "Stokes", Gender: "Male", salary:55000 },
+        { firstname: "David", lastname: "Warner", Gender: "Male", salary:65000 },
+        { firstname: "Chris", lastname: "Morris", Gender: "Male", salary:40000 },
+        { firstname: "Alex", lastname: "Blackwell", Gender: "Female", salary:35000 },
+        { firstname: "Amy", lastname: "Jones", Gender: "Female", salary:38000 }
+        ];
+        $scope.employees = employees;
+
+
+        
+        var countries = 
+        [   { 
+                name: "UK", 
+                cities: [ 
+                { name: "London" }, 
+                { name: "Birmingham" }, 
+                { name: "Manchester" }
+                ]
+            },
+            { name: "USA", 
+            cities: [ 
+                { name: "Los Angeles" }, 
+                { name: "Chicago" }, 
+                { name: "Houston" } 
+                ] 
+            }, 
+            { name: "India", 
+            cities: [ 
+                { name: "Hyderabad" }, 
+                { name: "Chennai" }, 
+                { name: "Mumbai" } 
+                ] 
+            } 
+        ]; 
+        
+        $scope.countries = countries;
+
+        var technologies =
+         [ 
+            { name: "PHP", likes: 0, dislikes: 0 }, 
+            { name: "Android", likes: 0, dislikes: 0 }, 
+            { name: "SQL", likes: 0, dislikes: 0 }, 
+            { name: "AngularJS", likes: 0, dislikes: 0 } 
+        ]; 
+
+         $scope.technologies = technologies; 
+
+         $scope.incrementLikes = function (technology) { technology.likes++; }; 
+         $scope.incrementDislikes = function (technology) { technology.dislikes++; };
+
+        var employees = 
+        [ 
+            { 
+            name: "Ben", 
+            dateOfBirth: new Date("November 23, 1980"), 
+            gender: "Male", 
+            salary: 55000.788 
+            },
+
+            { 
+            name: "David", 
+            dateOfBirth: new Date("May 05, 1970"), 
+            gender: "Male", 
+            salary: 68000 
+            }, 
+
+            { 
+            name: "Chris", 
+            dateOfBirth: new Date("August 15, 1974"), 
+            gender: "Male", 
+            salary: 57000 
+            },
+
+            { name: "Alex", 
+            dateOfBirth: new Date("October 27, 1979"), 
+            gender: "Female", 
+            salary: 53000 
+            }, 
+            
+            { 
+            name: "Amy", 
+            dateOfBirth: new Date("December 30, 1983"), 
+            gender: "Female", salary: 60000 } 
+        ]; 
+
+        $scope.employees = employees; 
+        $scope.rowCount = 3;
+            
+
+    }); 
+
+
+
+    </script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>

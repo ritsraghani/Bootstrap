@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	
+    <title>Test All Your Example Here</title>
+    <style>
+    
+    .arrow-up 
+    { 
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent; 
+        border-right: 5px solid transparent; 
+        border-bottom: 10px solid black; 
+        display:inline-block; 
+    } 
+    
+    .arrow-down 
+    { 
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 10px solid black;
+      display:inline-block;
+    }
+    </style>
+</head>
+
+
+<body>
+
+
+
+<div class="container" ng-controller="myController" style="margin:2%"> 
+
+        Rows to display : 
+        <input type="number" step="1" ng-model="rowCount" max="5" min="0" /> 
+        <br /><br />
+
+        Search : <form class="form-inline"><input class="form-control" type="text" ng-model=searchText placeholder="Search employees">
+        
+        <div class="checkbox">
+        <label><input type="checkbox" ng-model="hideSalary"> 
+        Hide Salary </label>
+        </div>
+        <br /><br />
+    </form>
+<table class="table table-responsive table-striped table-hover"> 
+    <thead> 
+        <tr> 
+        <th ng-click="sortData('name')">Name
+            <div ng-class="getSortClass('name')"></div>
+            <!-- <span class="glyphicon glyphicon-arrow-up"></span>
+            <span class="glyphicon glyphicon-arrow-down"></span> -->
+        </th>
+        <th ng-click="sortData('dateOfBirth')">Date of Birth
+                <div ng-class="getSortClass('dateOfBirth')"></div>
+            <!-- <span class="glyphicon glyphicon-arrow-up"></span>
+            <span class="glyphicon glyphicon-arrow-down"></span> -->
+        </th>
+        <th ng-click="sortData('gender')"> Gender
+                <div ng-class="getSortClass('gender')"></div>
+            <!-- <span class="glyphicon glyphicon-arrow-up"></span>
+            <span class="glyphicon glyphicon-arrow-down"></span> -->
+        </th>
+        <th ng-hide="hideSalary" ng-click="sortData('salary')">Salary
+                <div ng-class="getSortClass('salary')"></div>
+            <!-- <span class="glyphicon glyphicon-arrow-up"></span>
+            <span class="glyphicon glyphicon-arrow-down"></span> -->
+        </th>
+        </tr> 
+    </thead> 
+    <tbody> 
+        <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort |filter:searchText | limitTo:rowCount   "> 
+             <td> {{ employee.name }} </td>
+             <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+             <td> {{ employee.gender }} </td>
+             <td ng-hide="hideSalary"> {{ employee.salary }} </td>
+         </tr> 
+    </tbody>
+</table>
+
+
+</div>
+
+
+<script src="js/angular.min.js"> </script>
+<script> 
+    var myApp = angular.module("myModule",[]);
+    myApp.controller("myController", function ($scope) 
+    { 
+        var employees = 
+    [ 
+        { name: "Ben", dateOfBirth: new Date("November 23, 1980"), gender: "Male", salary: 55000 }, 
+        { name: "David", dateOfBirth: new Date("May 05, 1970"), gender: "Male", salary: 68000 }, 
+        { name: "Chris", dateOfBirth: new Date("August 15, 1974"), gender: "Male", salary: 57000 }, 
+        { name: "Alex", dateOfBirth: new Date("October 27, 1979"), gender: "Female", salary: 53000 }, 
+        { name: "Amy", dateOfBirth: new Date("December 30, 1983"), gender: "Female", salary: 60000 } 
+    ]; 
+        
+        $scope.employees = employees; 
+        $scope.rowCount=5;
+        $scope.sortColumn = "name";
+        $scope.reverseSort = false; 
+        $scope.sortData = function (column) 
+        { 
+        $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false; 
+        $scope.sortColumn = column; 
+        } 
+        
+        $scope.getSortClass = function (column) 
+        { 
+            if ($scope.sortColumn == column) 
+            { 
+                return $scope.reverseSort ? 'arrow-down' : 'arrow-up'; 
+            } 
+            return ''; 
+        }
+
+        
+    });
+
+</script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>

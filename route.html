@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app='myModule'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	
+    <title>Test All Your Example Here</title>
+  </head>
+<body>
+
+<div class="container" ng-controller="myController" style="margin:2%"> 
+
+<div class="container jumbotron text-center">
+<h3>Website Header</h3>
+</div>
+
+
+
+</div>
+
+
+<script src="js/angular.min.js"> </script>
+<script> 
+    var myApp = angular.module("myModule",[]);
+    myApp.controller("myController", function ($scope) 
+    { 
+        var employees = 
+    [ 
+        { name: "Ben", dateOfBirth: new Date("November 23, 1980"), gender: "Male", salary: 55000 }, 
+        { name: "David", dateOfBirth: new Date("May 05, 1970"), gender: "Male", salary: 68000 }, 
+        { name: "Chris", dateOfBirth: new Date("August 15, 1974"), gender: "Male", salary: 57000 }, 
+        { name: "Alex", dateOfBirth: new Date("October 27, 1979"), gender: "Female", salary: 53000 }, 
+        { name: "Amy", dateOfBirth: new Date("December 30, 1983"), gender: "Female", salary: 60000 } 
+    ]; 
+        
+        $scope.employees = employees; 
+        $scope.rowCount=5;
+        $scope.sortColumn = "name";
+        $scope.reverseSort = false; 
+        $scope.sortData = function (column) 
+        { 
+        $scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false; 
+        $scope.sortColumn = column; 
+        } 
+        
+        $scope.getSortClass = function (column) 
+        { 
+            if ($scope.sortColumn == column) 
+            { 
+                return $scope.reverseSort ? 'arrow-down' : 'arrow-up'; 
+            } 
+            return ''; 
+        }
+
+        
+    });
+
+</script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
