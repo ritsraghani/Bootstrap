@@ -54,8 +54,6 @@
   border-color:#5cb85c;
 }
 
-
-
 button.back_to_top:hover > .top_button_icon{
      color:white;
 }
@@ -63,3 +61,5 @@ button.back_to_top:hover > .top_button_icon{
 .top_button_icon{
      color:#555;
 }
+
+@media (min-width: 150px) and (max-width:767px)  { .form_subscribe{margin:10px;}}
