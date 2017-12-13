@@ -34,3 +34,32 @@
     color:#555;
 }
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: 1px solid #eee;
+  outline: none;
+  background-color: #eee;
+  /* color: white; */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#myBtn:hover {
+  background-color: #5cb85c;
+  border-color:#5cb85c;
+}
+
+
+
+button.back_to_top:hover > .top_button_icon{
+     color:white;
+}
+
+.top_button_icon{
+     color:#555;
+}
