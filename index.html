@@ -41,6 +41,16 @@
             $(this).addClass("active_link");
         });
     });
+
+      $('#modal_main').modal({
+            show: false,
+            backdrop: 'static',
+            keyboard: false
+        })
+
+        function modal_open() {
+            $("#modal_main").show();
+        }
     </script>
 
     <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
@@ -60,12 +70,49 @@
                 </ul>
 
                 <form class="navbar-form navbar-right">
-                    <button type="submit" class="btn btn-success">Buy Now</button>
+                    <button type="submit" class="btn btn-success" data-target="#modal_main" onclick="modal_open()" data-toggle="modal">Login</button>
                 </form>
             </div>
         </div>
     </nav>
     <!--Navigation bar ends-->
+
+   <!-- Modal Login -->
+    <!-- <div class="modal col-lg-8 col-md-10 col-sm-12 col-xs-12 center-block" id="modal_main">
+        <div class="modal-content">
+            <div class="modal-heading text-center" style="padding:2% 2% 0% 3%">
+                <h3>Login
+                    <a href="#modal_main" class="close" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </h3>
+            </div>
+    
+            <div class="modal-body" style="margin:2%">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-4">Email: </label>
+                        <div class="col-md-9 col-sm-10 col-xs-8">
+                            <input class="form-control" type="email" placeholder="Enter Email ID">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-4">Password:</label>
+                        <div class="col-md-9 col-sm-10 col-xs-8">
+                            <input class="form-control" type="password" placeholder="Enter Password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="modal-footer">
+                <button class="colse btn btn-success"> Submit </button>
+                <button class="colse btn btn-danger" data-dismiss="modal"> Close </button>
+            </div>
+        </div>
+    </div> -->
+    <!-- Modal end -->
 
     <div class="jumbotron text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:50px">
         <h1 class="text-center">Zenfone Smart devices</h1>
@@ -504,11 +551,37 @@
         </div>
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <h4>Footer Content</h4>
+            <p>Here you can use rows and columns here to organize your footer content.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi,
+                veritatis totam voluptas nostrum. </p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <ul class="footer_list"> <h4>Useful Links:</h4>
+                    <li>
+                        <a href="buttons.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="" >Our Products </a>
+                    </li>
+                    <li>
+                        <a href="#" >Services </a>
+                    </li>
+                    <li>
+                        <a href="#" > Careers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
     <button onclick="topFunction()" class="btn back_to_top" id="myBtn" title="Go to top"><span id="top_button_icon" class="glyphicon glyphicon-arrow-up top_button_icon"></span></button>
     
-  
-     <script> 
-    // When the user scrolls down 20px from the top of the document, show the button
+    <script> 
+        // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () { scrollFunction() };
 
         function scrollFunction() {

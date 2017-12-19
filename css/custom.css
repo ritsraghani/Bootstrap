@@ -63,3 +63,10 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 @media (min-width: 150px) and (max-width:767px)  { .form_subscribe{margin:10px;}}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: #f8f8f8;
+}
