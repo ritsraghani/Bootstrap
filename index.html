@@ -12,46 +12,7 @@
 </head>
 
 <body class="bg">
-
-    <script>
-    // var selector = '.nav li';
-    //     $(selector).on('click', function () {
-    //         $(selector).removeClass('active');
-    //         $(this).addClass('active1');
-    //     });
-
-    // $('#links a').click(function (e) {
-    //     console.log("Hello");
-    //         e.preventDefault();
-    //         $('#links a').removeClass('active');
-    //         $(this).addClass('active');
-    //     });
-
-
-    // function active(e) {
-    //         $('.active').each(function (i) {
-    //         i.removeClass('active');
-    //         });
-    //         e.addClassName('active');
-    //     };
-
-    $(document).ready(function () {
-            $(".links").click(function () {
-            $(".links").removeClass("active_link");
-            $(this).addClass("active_link");
-        });
-    });
-
-      $('#modal_main').modal({
-            show: false,
-            backdrop: 'static',
-            keyboard: false
-        })
-
-        function modal_open() {
-            $("#modal_main").show();
-        }
-    </script>
+<script  src = "js/custom.js"></script>
 
     <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
         <div class="container">
@@ -63,14 +24,14 @@
 
             <div class="navbar-collapse collapse" id="menu_options">
                 <ul class="nav navbar-nav" id="links">
-                    <li> <a href="#testimonials" class="links"> Testimonials </a> </li>
-                    <li> <a href="#features" class="links"> Features  </a></li>
-                    <li> <a href="#gallery" class="links"> Gallery  </a></li>
-                    <li> <a href="#contact_form" class="links"> Contact Us  </a></li>
+                    <li> <a href="p1/about_us.html" class="links"> About Us </a> </li>
+                    <li> <a href="p1/product_list.html" class="links"> Products  </a></li>
+                    <li> <a href="p1/services.html" class="links"> Services  </a></li>
+                    <li> <a href="p1/contact_form.html" class="links"> Contact Us  </a></li>
                 </ul>
 
                 <form class="navbar-form navbar-right">
-                    <button type="submit" class="btn btn-success" data-target="#modal_main" onclick="modal_open()" data-toggle="modal">Login</button>
+                    <button type="button" class="btn btn-success" data-target="#modal_main" data-toggle="modal">Login</button>
                 </form>
             </div>
         </div>
@@ -78,7 +39,7 @@
     <!--Navigation bar ends-->
 
    <!-- Modal Login -->
-    <!-- <div class="modal col-lg-8 col-md-10 col-sm-12 col-xs-12 center-block" id="modal_main">
+    <div class="modal col-lg-offset-2 col-md-offset-1 col-lg-8 col-md-10 col-sm-12 col-xs-12" id="modal_main">
         <div class="modal-content">
             <div class="modal-heading text-center" style="padding:2% 2% 0% 3%">
                 <h3>Login
@@ -111,7 +72,7 @@
                 <button class="colse btn btn-danger" data-dismiss="modal"> Close </button>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Modal end -->
 
     <div class="jumbotron text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:50px">
@@ -565,13 +526,13 @@
                         <a href="buttons.html">About Us</a>
                     </li>
                     <li>
-                        <a href="" >Our Products </a>
+                        <a href="examples.html" >Our Products </a>
                     </li>
                     <li>
-                        <a href="#" >Services </a>
+                        <a href="table.html" >Services </a>
                     </li>
                     <li>
-                        <a href="#" > Careers</a>
+                        <a href="test.html" > Careers</a>
                     </li>
                 </ul>
             </div>
@@ -580,25 +541,6 @@
 
     <button onclick="topFunction()" class="btn back_to_top" id="myBtn" title="Go to top"><span id="top_button_icon" class="glyphicon glyphicon-arrow-up top_button_icon"></span></button>
     
-    <script> 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("myBtn").style.display = "block";
-            } else {
-                document.getElementById("myBtn").style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-
 </body>
 
 </html>
