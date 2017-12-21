@@ -20,7 +20,7 @@
 
 </style>
 <body>
-<table class="table" cellpadding="2" cellspacing="2" border="0" bgcolor="#dfdfdf" width="40%" align="center">
+<!-- <table class="table" cellpadding="2" cellspacing="2" border="0" bgcolor="#dfdfdf" width="40%" align="center">
     <thead>
         <tr>
             <th>Name</th>
@@ -28,8 +28,13 @@
             <th width="12%">Status</th>
         </tr>
     </thead>
-    <tbody id="tableData"></tbody>
-</table>
+    <tbody ></tbody>
+</table> -->
+<div class="container" id="tableData"></div>
+<div class="container">
+<button type="button" class="btn btn-success">Submit Test</button>
+</div>
+
 <script type="text/javascript">
     var mainObj = [
         {
@@ -48,21 +53,40 @@
             status: 2
         }
     ];
-    var k = '<tbody>'
+    var k = '<div>'
+     k += '<ul>';
     for (i = 0; i < mainObj.length; i++) {
-        k += '<tr>';
-        k += '<td>' + mainObj[i].name + '</td>';
+       
+        k += '<li>' + mainObj[i].name + '</li>';
+        
+        k+= '<ul>';
         for(j=0; j< mainObj[i].age.length;j++)
         {
-        k += '<td>' + mainObj[i].age[j] + '</td>';
+          k += '<div class="radio">';
+          k += '<label><li><input type="radio" name= "answer';
+          k+=  j 
+          k +='[';
+          k += i;
+          k+= ']' ; 
+          k += ' ">'; 
+          k+= mainObj[i].age[j]; 
+          k += '</label></li>';
+          k+= '  </div>';
+       
         }
-        // k += '<td>' + mainObj[i].status + '</td>';
-        k += '</tr>';
+       
+        k += '</ul>';
     }
-    k += '</tbody>';
+    k+='</ul>';
+    
     document.getElementById('tableData').innerHTML = k;
 </script>
   
+
+
+
+
+
 </body>
 
 </html>
