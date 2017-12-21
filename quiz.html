@@ -20,59 +20,68 @@
 
 </style>
 <body>
-<!-- <table class="table" cellpadding="2" cellspacing="2" border="0" bgcolor="#dfdfdf" width="40%" align="center">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th width="20%">Age</th>
-            <th width="12%">Status</th>
-        </tr>
-    </thead>
-    <tbody ></tbody>
-</table> -->
+<form id="quiz">
 <div class="container" id="tableData"></div>
-<div class="container">
-<button type="button" class="btn btn-success">Submit Test</button>
-</div>
 
+    <button type="submit" class="btn btn-success" onclick="results()">Submit Test</button>
+
+</form>
+
+<span id="result"></span>
 <script type="text/javascript">
-    var mainObj = [
+
+const myQuestions = [
         {
-            name: "2*5",
-            age: [10,21,65,2],
-            status: 0
+            question: "Who is the strongest?",
+            answers: {
+                a: "Superman",
+                b: "The Terminator",
+                c: "Waluigi, obviously"
+            },
+            correctAnswer: "c"
         },
         {
-            name: "3*7",
-            age: [10, 21, 65, 2],
-            status: 1
+            question: "What is the best site ever created?",
+            answers: {
+                a: "SitePoint",
+                b: "Simple Steps Code",
+                c: "Trick question; they're both the best"
+            },
+            correctAnswer: "c"
         },
         {
-            name: "13*3",
-            age: [10, 21, 39, 2],
-            status: 2
+            question: "Where is Waldo really?",
+            answers: {
+                a: "Antarctica",
+                b: "Exploring the Pacific Ocean",
+                c: "Sitting in a tree",
+                d: "Minding his own business, so stop asking"
+            },
+            correctAnswer: "d"
         }
-    ];
+];
+
+var answers=[];
     var k = '<div>'
-     k += '<ul>';
-    for (i = 0; i < mainObj.length; i++) {
-       
-        k += '<li>' + mainObj[i].name + '</li>';
+     k += '<ul class="list-group">';
+    for (i = 0; i < myQuestions.length; i++) {
+     
+        k += '<li class="list-group-item" id="xyz"><b>' + 'Q.No.' + (i+1) +'       ' + myQuestions[i].question + '</b></li>';
         
-        k+= '<ul>';
-        for(j=0; j< mainObj[i].age.length;j++)
+        k+= '<ul class="list-group">';
+        for(ans in myQuestions[i].correctAnswer)
         {
-          k += '<div class="radio">';
-          k += '<label><li><input type="radio" name= "answer';
-          k+=  j 
-          k +='[';
-          k += i;
-          k+= ']' ; 
-          k += ' ">'; 
-          k+= mainObj[i].age[j]; 
-          k += '</label></li>';
-          k+= '  </div>';
-       
+            answers = myQuestions[i].correctAnswer[ans];
+        }
+
+        for(index in myQuestions[i].answers)
+        {
+          k+='<div class="radio">';
+          k+='<li class="list-group-item"><input type="radio" name="radio'+i+'"id= "id' +i+index+'" value="'+ myQuestions[i].answers[index] +'">' 
+          k+= myQuestions[i].answers[index]
+          k+='</li></div>';
+        
+            
         }
        
         k += '</ul>';
@@ -80,6 +89,20 @@
     k+='</ul>';
     
     document.getElementById('tableData').innerHTML = k;
+
+function results() {
+    // var result;
+    
+     var radVal = document.quiz.radio0.value;
+    result.innerHTML = 'You selected: ' + radVal;
+    console.log(radVal);
+    alert("Hi");
+}
+
+
+        // document.getElementById('result').innerHTML = result;
+    
+
 </script>
   
 
