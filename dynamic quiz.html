@@ -11,14 +11,13 @@
 </head>
 
 <body>
-    <div class="quizContainer container">
-         <h1>Hello! Welcome to the JS Dynamic Quiz!</h1>
-
-        <div class="question container "></div>
-        <ul class="choiceList"></ul>
+    <div class="quizContainer container col-lg-6">
+        <h1>Hello! Welcome to the JS Dynamic Quiz!</h1>
+        <div class="question panel panel-primary panel-heading h3">  </div>
+        <ul class="choiceList list-group"></ul>
         <div class="quizMessage container"></div>
         <div class="result container"></div>
-        <button class="btn btn-primary btn-small nextButton container">Next Question</button>
+        <button class="btn btn-primary btn-small nextButton">Next Question</button>
         <br>
     </div>
 </body>
@@ -58,7 +57,7 @@ $(document).ready(function () {
 
     // This displays the current question AND the choices
     function displayCurrentQuestion() {
-        var question = questions[currentQuestion].question;
+        var question = 'Q.' + (currentQuestion + 1) + '.   '+questions[currentQuestion].question;
         var questionClass = $(document).find(".quizContainer > .question");
         var choiceList = $(document).find(".quizContainer > .choiceList");
         var numChoices = questions[currentQuestion].choices.length;
@@ -72,7 +71,8 @@ $(document).ready(function () {
         var choice;
         for (i = 0; i < numChoices; i++) {
             choice = questions[currentQuestion].choices[i];
-            $('<li><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</li>').appendTo(choiceList);
+            $('<li class="list-group-item"><input type="radio" value=' + i + ' name="dynradio" />' + 
+                choice + '</li>').appendTo(choiceList);
         }
     }
 
