@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <!-- <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"> </script>
+    <title>Angular JS project</title>
+</head>
+
+<body ng-controller="myController">
+    <style>
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .table-striped {
+            background-color: #e7e7e7;
+        }
+      
+    </style>
+        <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">
+                        <span class="glyphicon glyphicon-home"></span> &nbsp; Zenfone </a>
+                    <button class="navbar-toggle" data-toggle="collapse" id="menu" data-target="#menu_options">
+                        <span class="glyphicon glyphicon-menu-hamburger"> </span>
+                    </button>
+                </div>
+        
+                <div class="navbar-collapse collapse" id="menu_options">
+                    <ul class="nav navbar-nav" id="links">
+                        <li>
+                            <a href="about_us.html" class="links"> About Us </a>
+                        </li>
+                        <li>
+                            <a href="product_list.html" class="links"> Products </a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="links"> Services </a>
+                        </li>
+                        <li>
+                            <a href="contact_form.html" class="links"> Contact Us </a>
+                        </li>
+                    </ul>
+        
+                    <form class="navbar-form navbar-right">
+                        <button type="button" class="btn btn-success" data-target="#modal_main" data-toggle="modal">Login</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!--Navigation bar ends-->
+        
+        <!-- Modal Login -->
+        <div class="modal col-lg-offset-2 col-md-offset-1 col-lg-8 col-md-10 col-sm-12 col-xs-12" id="modal_main">
+            <div class="modal-content">
+                <div class="modal-heading text-center" style="padding:2% 2% 0% 3%">
+                    <h3>Login
+                        <a href="#modal_main" class="close" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </h3>
+                </div>
+        
+                <div class="modal-body" style="margin:2%">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-4">Email: </label>
+                            <div class="col-md-9 col-sm-10 col-xs-8">
+                                <input class="form-control" type="email" placeholder="Enter Email ID">
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-4">Password:</label>
+                            <div class="col-md-9 col-sm-10 col-xs-8">
+                                <input class="form-control" type="password" placeholder="Enter Password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        
+                <div class="modal-footer">
+                    <button class="colse btn btn-success"> Submit </button>
+                    <button class="colse btn btn-danger" data-dismiss="modal"> Close </button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal end -->
+    <div class="container text-center" style="margin-top:70px;">
+
+        <h2 class="text-white bg-success">Pre-order Now!!!!</h2>
+
+    </div>
+    <div class="container" style=" margin-left: 20px; margin-right: 20px;">
+        <div class="container col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <h3 class="text-success">Register your ID for pre-order:</h3>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Name:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.emname" type="text" class="form-control" id="name" placeholder="Enter Your Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="dob">DOB:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.emdob" type="text" class="form-control" id="dob" placeholder="Enter DOB">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.ememail" type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="mobile_no">Phone:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.emmobile" type="text" class="form-control" id="mobile_no" placeholder="Enter Your number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="salary">Salary:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.emsalary" type="text" class="form-control" id="salary" placeholder="Salary">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="city">City:</label>
+                    <div class="col-sm-8">
+                        <input ng-model="tempUser.emcity" type="text" class="form-control" id="city" placeholder="Enter your city name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button ng-click="insertData()" ng-hide="tempUser.id" type="submit" class="btn btn-success">Save</button>
+                        <button ng-click="updateData()" ng-hide="!tempUser.id" type="submit" class="btn btn-primary">update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <h3 class="text-success">Customers already registered:</h3>
+            <table class="table table-responsive nowrap table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Email ID</th>
+                        <th>Mobile No</th>
+                        <th>Salary</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in employees">
+                        <!-- <td>{{employee.id}}</td> -->
+                        <td> {{ employee.employee_name | uppercase }} </td>
+                        <td> {{ employee.dob | date:"dd/MM/yyyy" }} </td>
+                        <td> {{ employee.email }} </td>
+                        <td> {{ employee.mobile_no }} </td>
+                        <td> {{ employee.salary | currency : "£" : 1 }} </td>
+                        <td> {{ employee.city}} </td>
+                        <td>
+                            <a href="" ng-click="viewData(employee)">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a> |
+                            <a href="" ng-click="edit(employee)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a> |
+                            <a href="" ng-click="deleteData(employee.id)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="emp_profile">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="color:blueviolet;">Employee Profile</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <td> Employee Name : </td>
+                            <td style="color:blueviolet"> {{temp.emname}}</td>
+                        </tr>
+                        <tr>
+                            <td> Employee DOB : </td>
+                            <td style="color:blueviolet"> {{temp.emdob}}</td>
+                        </tr>
+                        <tr>
+                            <td> Employee Email : </td>
+                            <td style="color:blueviolet">{{temp.ememail }}</td>
+                        </tr>
+                        <tr>
+                            <td> Employee Mobile : </td>
+                            <td style="color:blueviolet">{{temp.emmobile}}</td>
+                        </tr>
+                        <tr>
+                            <td> Employee Salary : </td>
+                            <td style="color:blueviolet">{{temp.emsalary}} </td>
+                        </tr>
+                        <tr>
+                            <td> Employee City : </td>
+                            <td style="color:blueviolet"> {{temp.emcity}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="color:#8a2be2">Save changes</button>
+                    <button type="button" class="btn" style="color:blueviolet" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module("myModule", [])
+        app.controller("myController", function ($scope, $http) {
+
+            $scope.tempUser = {}
+            $http.get("data.php")
+                .then(function (response) {
+                    $scope.employees = response.data;
+                });
+
+            $scope.displayData = function () {
+                $http.get("data.php")
+                    .then(function (data) {
+                        $scope.employees = data.data;
+                    });
+            }
+
+            $scope.insertData = function () {
+                console.log("I'm here");
+                $http.post("insert.php",
+                    {
+                        'name': $scope.tempUser.emname,
+                        'dob': $scope.tempUser.emdob,
+                        'emailid': $scope.tempUser.ememail,
+                        'mobile': $scope.tempUser.emmobile,
+                        'salary': $scope.tempUser.emsalary,
+                        'city': $scope.tempUser.emcity
+                    }
+                ).then(function (response) {
+                    // console.log(response.data);
+                    $scope.tempUser.emname = null;
+                    $scope.tempUser.emdob = null;
+                    $scope.tempUser.ememail = null;
+                    $scope.tempUser.emmobile = null;
+                    $scope.tempUser.emsalary = null;
+                    $scope.tempUser.emcity = null;
+                    $scope.displayData();
+                })
+            }
+
+            $scope.edit = function (employee) {
+                alert(employee);
+                $scope.tempUser = {
+                    id: employee.id,
+                    emname: employee.employee_name,
+                    emdob: employee.dob,
+                    ememail: employee.email,
+                    emmobile: employee.mobile_no,
+                    emsalary: employee.salary,
+                    emcity: employee.city
+                };
+
+            }
+
+            $scope.updateData = function () {
+                console.log("I'm here update function");
+
+                $http.post("update.php",
+                    {
+                        'id': $scope.tempUser.id,
+                        'name': $scope.tempUser.emname,
+                        'dob': $scope.tempUser.emdob,
+                        'emailid': $scope.tempUser.ememail,
+                        'mobile': $scope.tempUser.emmobile,
+                        'salary': $scope.tempUser.emsalary,
+                        'city': $scope.tempUser.emcity
+                    }
+                ).then(function (data) {
+                    //  alert(data.data);
+                    // console.log(response.data);
+                    $scope.tempUser.emname = null;
+                    $scope.tempUser.emdob = null;
+                    $scope.tempUser.ememail = null;
+                    $scope.tempUser.emmobile = null;
+                    $scope.tempUser.emsalary = null;
+                    $scope.tempUser.emcity = null;
+                    $scope.displayData();
+                })
+            }
+
+            $scope.deleteData = function (x) {
+
+                $http.post("delete.php",
+                    { 'id': x, }
+                ).then(function (data) {
+                    $scope.displayData();
+                })
+            }
+            $scope.viewData = function (employee) {
+                // alert(employee);
+                // console.log(employee);
+                var temp = {};
+                $scope.temp = {
+                    id: employee.id,
+                    emname: employee.employee_name,
+                    emdob: employee.dob,
+                    ememail: employee.email,
+                    emmobile: employee.mobile_no,
+                    emsalary: employee.salary,
+                    emcity: employee.city
+                };
+                $("#emp_profile").modal('show');
+                // $("#emp_profile modal-content modal-body").html('<h1>Hello Modal</h1>');
+
+            }
+        });
+    </script>
+</body>
+
+</html>
