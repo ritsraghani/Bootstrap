@@ -45,7 +45,7 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .bg_image{
-  background: url("../images/Desert.jpg") no-repeat;
+  background: url("../images/background.jpg") no-repeat;
   background-size:cover;
   min-height: 80%;
   background-position: center;
@@ -73,7 +73,8 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .bg_blue{
-  background-color: bisque;
+  background-color:#428bca;
+  color:white;
 }
 
 .list_style{
@@ -83,9 +84,8 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .ul_heading{
-  background-color:black;
+  background-color:#5cb85c;
   color:white;
-  /* height: 2.5em; */
-  line-height: 400%;
+  line-height: 350%;
 }
 
