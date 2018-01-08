@@ -48,9 +48,7 @@ button.back_to_top:hover > .top_button_icon{
   background: url("../images/background.jpg") no-repeat;
   background-size:cover;
   min-height: 80%;
-  background-position: center;
-    -webkit-background-size: cover;
-    /* opacity: 0.7; */
+  width: inherit;
 }
 
 .text_on_image{
@@ -73,19 +71,24 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .bg_blue{
-  background-color:#428bca;
+  background-color:#0b6f90;
   color:white;
 }
 
-.list_style{
+.list_style{ 
   background-color: #eee;
   color: #555;
   font-size: 0.8em;
 }
 
 .ul_heading{
-  background-color:#5cb85c;
+  background-color:#11c0ba;
   color:white;
   line-height: 350%;
+}
+
+.prize_button{
+  background-color: #11c0ba;
+  color:white;
 }
 
