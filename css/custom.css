@@ -106,3 +106,27 @@ button.back_to_top:hover > .top_button_icon{
   color:#555;
 }
 
+@media (min-width:1200px){
+.svg_img {
+  margin: 3%;
+}
+}
+
+@media (min-width:920px) and (max-width:1199px){
+  .svg_img {
+  margin: 1%;
+}
+}
+
+@media (min-width:768px) and (max-width:919px){
+  .svg_img {
+  margin: 1%;
+}
+}
+
+@media  (max-width:768px){
+  .svg_img {
+  margin: 1%;
+}
+}
+
