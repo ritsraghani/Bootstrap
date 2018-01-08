@@ -92,3 +92,17 @@ button.back_to_top:hover > .top_button_icon{
   color:white;
 }
 
+.bg_grey{
+  background-color: #e7e7e7;
+  color:#555;
+  font-size: 0.8em;
+}
+
+.white{
+  color:white;
+}
+
+.grey{
+  color:#555;
+}
+
