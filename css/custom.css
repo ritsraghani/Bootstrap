@@ -45,12 +45,10 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .bg_image{
-  background: url("../images/Desert.jpg") no-repeat;
+  background: url("../images/background.jpg") no-repeat;
   background-size:cover;
   min-height: 80%;
-  background-position: center;
-    -webkit-background-size: cover;
-    /* opacity: 0.7; */
+  width: inherit;
 }
 
 .text_on_image{
@@ -73,19 +71,62 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .bg_blue{
-  background-color: bisque;
+  background-color:#0b6f90;
+  color:white;
 }
 
-.list_style{
+.list_style{ 
   background-color: #eee;
   color: #555;
   font-size: 0.8em;
 }
 
 .ul_heading{
-  background-color:black;
+  background-color:#11c0ba;
   color:white;
-  /* height: 2.5em; */
-  line-height: 400%;
+  line-height: 350%;
+}
+
+.prize_button{
+  background-color: #11c0ba;
+  color:white;
+}
+
+.bg_grey{
+  background-color: #e7e7e7;
+  color:#555;
+  font-size: 0.8em;
+}
+
+.white{
+  color:white;
+}
+
+.grey{
+  color:#555;
+}
+
+@media (min-width:1200px){
+.svg_img {
+  margin: 3%;
+}
+}
+
+@media (min-width:920px) and (max-width:1199px){
+  .svg_img {
+  margin: 1%;
+}
+}
+
+@media (min-width:768px) and (max-width:919px){
+  .svg_img {
+  margin: 1%;
+}
+}
+
+@media  (max-width:768px){
+  .svg_img {
+  margin: 1%;
+}
 }
 
