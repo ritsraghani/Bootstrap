@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
     <script src="js/jquery-2.2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"> </script>
@@ -14,48 +15,40 @@
 </head>
 
 <body ng-controller="myController">
-    <style>
-        .nowrap {
-            white-space: nowrap;
-        }
+<style>
+    .nowrap {
+        white-space: nowrap;
+    }
 
-        .table-striped {
-            background-color: #e7e7e7;
-        }
-      
-    </style>
-    <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand">
-                    <span class="glyphicon glyphicon-home"></span> &nbsp; Zenfone </a>
-                <button class="navbar-toggle" data-toggle="collapse" id="menu" data-target="#menu_options">
-                    <span class="glyphicon glyphicon-menu-hamburger"> </span>
-                </button>
-            </div>
+    .table-striped {
+        background-color: #e7e7e7;
+    }
     
-            <div class="navbar-collapse collapse" id="menu_options">
-                <ul class="nav navbar-nav" id="links">
-                    <li>
-                        <a href="about_us.html" class="links"> About Us </a>
-                    </li>
-                    <li>
-                        <a href="product_list.html" class="links"> Products </a>
-                    </li>
-                    <li>
-                        <a href="services.html" class="links"> Services </a>
-                    </li>
-                    <li>
-                        <a href="contact_form.html" class="links"> Contact Us </a>
-                    </li>
-                </ul>
-    
-                <form class="navbar-form navbar-right">
-                    <button type="button" class="btn btn-success" data-target="#modal_main" data-toggle="modal">Login</button>
-                </form>
-            </div>
+</style>
+<nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">
+                <span class="glyphicon glyphicon-home"></span> &nbsp; Zenfone </a>
+            <button class="navbar-toggle" data-toggle="collapse" id="menu" data-target="#menu_options">
+                <span class="glyphicon glyphicon-menu-hamburger"> </span>
+            </button>
         </div>
-    </nav>
+
+        <div class="navbar-collapse collapse" id="menu_options">
+            <ul class="nav navbar-nav" id="links">
+                <li> <a href="about_us.html" class="links"> About Us </a> </li>
+                <li> <a href="product_list.html" class="links"> Products </a> </li>
+                <li> <a href="services.html" class="links"> Services </a> </li>
+                <li> <a href="contact_form.html" class="links active_link"> Contact Us </a> </li>
+            </ul>
+
+            <form class="navbar-form navbar-right">
+                <button type="button" class="btn btn-success" data-target="#modal_main" data-toggle="modal">Login</button>
+            </form>
+        </div>
+    </div>
+</nav>
         <!--Navigation bar ends-->
         
         <!-- Modal Login -->

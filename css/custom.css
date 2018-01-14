@@ -1,14 +1,19 @@
+/* Navbar properties for all pages */
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     background-color: #e7e7e7;
     color: #555;
 }
 
-/* .active_link{
+.active_link{
     background-color: #e7e7e7;
     color:#555;
-} */
+}
+/* Navbar properties ends */
 
+/* Back to top button shape and position */
 #myBtn {
+  width:35px;
+  height:35px;
   display: none;
   position: fixed;
   bottom: 20px;
@@ -18,25 +23,30 @@
   outline: none;
   background-color: #eee;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   border-radius: 20px;
 }
 
+/* Back to top button hover property */
 #myBtn:hover {
   background-color: #5cb85c;
   border-color:#5cb85c;
 }
 
+/* Back to top button hover property */
 button.back_to_top:hover > .top_button_icon{
-     color:white;
+color:white;
 }
-
+/* Back to top button hover property */
 .top_button_icon{
-     color:#555;
+color:#555;
 }
 
-@media (min-width: 150px) and (max-width:767px)  { .form_subscribe{margin:10px;}}
+@media (min-width: 150px) and (max-width:767px)  
+/* index.html page form_subscribe sizing */
+{ .form_subscribe{margin:10px;}}
 
+/* footer of index.html page */
 .footer {
     position: absolute;
     width: 100%;
@@ -44,17 +54,14 @@ button.back_to_top:hover > .top_button_icon{
     background-color: #f8f8f8;
 }
 
+/* Index.html page ends */
+
+/* about_us page top background image */
 .bg_image{
   background: url("../images/background.jpg") no-repeat;
   background-size:cover;
-  min-height: 80%;
+  min-height: 95%;
   width: inherit;
-}
-
-.text_on_image{
-  margin-top: 4%;
-  text-align:center;
-  color:white;
 }
 
 .images{
@@ -67,48 +74,66 @@ button.back_to_top:hover > .top_button_icon{
 }
 
 .details{
-  font-size:0.8em;
+  font-size:0.9em;
 }
 
+
+/* Wells used in between about_us page */
 .bg_blue{
   background-color:#0b6f90;
   color:white;
 }
 
+/* prizing section of about_us page */
 .list_style{ 
   background-color: #eee;
   color: #555;
   font-size: 0.8em;
 }
 
+/* prizing section of about_us page */
 .ul_heading{
   background-color:#11c0ba;
   color:white;
   line-height: 350%;
 }
 
+/* prizing section of about_us page */
 .prize_button{
   background-color: #11c0ba;
   color:white;
 }
 
+/* about_us page client name section */
 .bg_grey{
   background-color: #e7e7e7;
   color:#555;
   font-size: 0.8em;
 }
 
+/* footer section of about_us page */
 .white{
   color:white;
 }
 
+/* footer section of about_us page */
 .grey{
   color:#555;
 }
 
+
+
 @media (min-width:1200px){
-.svg_img {
+/* .svg_img --> images used in about_us page in the footer section  */
+  .svg_img { 
   margin: 3%;
+}
+
+/* about_us page text on background image */
+.text_on_image{
+  margin-top: 4%;
+  text-align:center;
+  color:white;
 }
 }
 
@@ -116,17 +141,39 @@ button.back_to_top:hover > .top_button_icon{
   .svg_img {
   margin: 1%;
 }
+
+/* about_us page text on background image */
+.text_on_image{
+  margin-top: 6%;
+  text-align:center;
+  color:white;
+}
 }
 
 @media (min-width:768px) and (max-width:919px){
   .svg_img {
   margin: 1%;
 }
+
+/* about_us page text on background image */
+.text_on_image{
+  margin-top: 4%;
+  text-align:center;
+  color:white;
+}
 }
 
 @media  (max-width:768px){
   .svg_img {
   margin: 1%;
+}
+
+/* about_us page text on background image */
+.text_on_image{
+  font-size:1.3em;
+  margin-top: 4%;
+  text-align:center;
+  color:white;
 }
 }
 
