@@ -80,7 +80,7 @@ color:#555;
 
 /* Wells used in between about_us page */
 .bg_blue{
-  background-color:#0b6f90;
+  background-color:#48a0dc;
   color:white;
 }
 
@@ -88,19 +88,19 @@ color:#555;
 .list_style{ 
   background-color: #eee;
   color: #555;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 /* prizing section of about_us page */
 .ul_heading{
-  background-color:#11c0ba;
+  background-color:#61b872;
   color:white;
   line-height: 350%;
 }
 
 /* prizing section of about_us page */
 .prize_button{
-  background-color: #11c0ba;
+  background-color: #61b872;
   color:white;
 }
 
@@ -108,11 +108,11 @@ color:#555;
 .bg_grey{
   background-color: #e7e7e7;
   color:#555;
-  font-size: 0.8em;
+  /* font-size: 0.8em; */
 }
 
 /* footer section of about_us page */
-.white{
+.white_text{
   color:white;
 }
 
@@ -123,57 +123,166 @@ color:#555;
 
 
 
+.borderless>tbody>tr>td, .borderless>tbody>tr>th, .borderless>tfoot>tr>td, .borderless>tfoot>tr>th, 
+.borderless>thead>tr>td, .borderless>thead>tr>th
+{
+  border-top:0px !important;
+  padding: 2% !important;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Large screen */
 @media (min-width:1200px){
-/* .svg_img --> images used in about_us page in the footer section  */
-  .svg_img { 
-  margin: 3%;
+  /* svg_img --> images used in about_us page in the footer section  */
+    .svg_img {
+    width:40px;
+    height:40px; 
+    margin: 3%;
+  }
+
+  /* about_us page text on background image */
+  .text_on_image{
+    margin-top: 4%;
+    text-align:center;
+    color:white;
+  }
+
+  #first-name,#email-id { 
+  margin-bottom:4%;
+  }
+
+  .prize_section{
+  font-size: 4em;
+  }
+
+  .smartphone_img{
+    padding-top:2%;
+  }
+
 }
 
-/* about_us page text on background image */
-.text_on_image{
-  margin-top: 4%;
-  text-align:center;
-  color:white;
-}
-}
+/* md screen media query */
+@media (min-width:992px) and (max-width:1199px){
 
-@media (min-width:920px) and (max-width:1199px){
+  .smartphone_img{
+    padding-top:5%;
+  }
+
   .svg_img {
+  width:40px;
+  height:40px;
   margin: 1%;
+  }
+
+  /* about_us page text on background image */
+  .text_on_image{
+    margin-top: 6%;
+    text-align:center;
+    color:white;
+  }
+
+  #first-name,#email-id { 
+  margin-bottom:4%;
+  }
+
+   .prize_section{
+  font-size: 4em;
+  }
 }
 
-/* about_us page text on background image */
-.text_on_image{
-  margin-top: 6%;
-  text-align:center;
-  color:white;
-}
-}
+/* sm screen media queries */
+@media (min-width:768px) and (max-width:991px){
 
-@media (min-width:768px) and (max-width:919px){
+  .smartphone_img{
+    padding-top:15%;
+  }
+
   .svg_img {
+  width:40px;
+  height:40px;
   margin: 1%;
+  }
+
+  /* about_us page text on background image */
+  .text_on_image{
+    margin-top: 4%;
+    text-align:center;
+    color:white;
+  }
+
+  #first-name,#email-id { 
+  margin-bottom:4%;
+  }
+
+  .prize_section{
+  font-size: 4em;
+  }
 }
 
-/* about_us page text on background image */
-.text_on_image{
-  margin-top: 4%;
-  text-align:center;
-  color:white;
-}
-}
+/* xs screen media query */
+@media  (max-width:767px){
 
-@media  (max-width:768px){
+  .h3{
+    font-size: 1em;
+  }
+
+  .text_on_image{
+    font-size: 1.1em;
+  }
+
   .svg_img {
-  margin: 1%;
-}
+  width:30px;
+  height:30px;
+  margin: 2%;
+  }
 
-/* about_us page text on background image */
-.text_on_image{
+  /* about_us page text on background image */
+  .text_on_image{
   font-size:1.3em;
   margin-top: 4%;
   text-align:center;
   color:white;
-}
+  }
+
+  .white_text{
+  margin:7% 2% 2% 2%;
+  text-align: center;
+  }
+  .footer_heading{
+    text-align: center;
+  }
+
+  .grey{
+  margin:2%;
+  text-align: center; 
+  }
+
+  .grey+p{
+  text-align: center; 
+  }
+
+  .footer_button{
+    display: block;
+    text-align: center;
+  }
+
+  #first-name,#email-id { 
+  margin-bottom:2%;
+  }
+
+  .social_links{
+    text-align: center;
+  /* align-items: center; */
+  }
+
+  .prize_section{
+    font-size: 2em;
+  }
+
+  .list_style{
+    font-size: 0.8em;
+  }
+
 }
 
