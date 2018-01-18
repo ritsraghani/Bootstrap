@@ -48,5 +48,39 @@
         left:621px;
         top:409px;
         position: absolute;
+        width: 362px;
+        height: 178px;
+    }
+
+    #transforming {
+    width: 440px;
+    height: 84px;
+    font-family: Phosphate-Solid;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 8.8px;
+    text-align: center;
+    color: #ffffff;
+    top:37.4%;
+    left:63.9%;
+    position: absolute;
+    }
+
+    #small_hr{
+        position: absolute;
+        border:2px solid #fff;
+        width: 400px;
+        top:49.2%;
+        left:63.9%;
+    }
+
+    #below_transfroming{
+        position: absolute;
+        top:53.4%;
+        left:63.9%;
+        color:white;
     }
  }
