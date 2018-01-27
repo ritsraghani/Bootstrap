@@ -1,28 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="owlcarousel/dist/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-2.2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="owlcarousel/dist/owl.carousel.min.js"></script>
-    
-      
+          
     <title> Product List </title>
 </head>
 
 <body class="bg">
-    <script src="js/custom.js"></script>
-     <script>
-        $(document).ready(function () { $(".owl-carousel").owlCarousel(); });
+    <!-- <script src="js/custom.js"></script> -->
+<script>
+    $(document).ready(function () {                 
+        // $('.owl-carousel2').owlCarousel({
+        //     loop: true,
+        //     margin: 10,
+        //     autoplay:true,
+        //     responsiveClass: true,
+        //     responsive: {
+        //         0: {
+        //             items: 1,
+        //             nav: true
+        //         },
+        //         600: {
+        //             items: 3,
+        //             nav: true
+        //         },
+        //         1000: {
+        //             items: 5,
+        //             nav: true,
+        //             loop: false
+        //         }
+        //     }
+        // });
+        $('.owl-carousel1').owlCarousel({
+            loop: true,
+            margin: 15,
+            // autoHeight: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 2,
+                    nav: true
+                },
+                1000: {
+                    items: 2,
+                    nav: true,
+                    loop: false
+                }
+            }
+        });
+        $('.quotes-carousel').owlCarousel({
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            animateOut:'fadeOut',
+            autoplay:true,
+            items: 1,
+            margin: 30,
+            stagePadding: 30,
+            smartSpeed: 450,
+            loop:true,
+            dots:false,
+            autoHeight:true,
+            nav: true,
+            navText: ['<span class="glyphicon glyphicon-chevron-left" style="color:white;"></span>', 
+            '<span class="glyphicon glyphicon-chevron-right" style="color:white"></span>'],
+            responsiveClass:true,
+            responsive:{
+                1000:{
+                    items:1,
+                }
+            }
+        });
+    });
 
-    </script>
+</script>
 
     <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
         <div class="container">
@@ -89,11 +153,11 @@
 
     <!-- <div class="jumbotron text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:50px">
       
-        <p class="text-center">Coming Soon.......</p>
+        <h3 class="text-center">Carousels</h3>
       
-    </div>
-    Jumbotron ends -->
-    <div class="conatiner" style="margin-top:50px;">
+    </div> -->
+    <!-- Jumbotron ends -->
+    <!-- <div class="conatiner" style="margin-top:50px;">
         <div class="panel panel-primary">
 
             <div class="panel-heading"> <h1>Product List</h1> </div>
@@ -102,17 +166,96 @@
 
             <div class="panel-footer"> XYZssss </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="owl-carousel">
-        <div> <img class="img img-responsive" src="images/harry.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry1.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry2.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry3.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry4.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry5.jpg" alt="Image XYZ"> </div>
-        <div> <img class="img img-responsive" src="images/harry7.jpg" alt="Image XYZ"> </div>
+    <!-- Owl Carousel2 starts -->
+    
+<!-- <div class="owl-carousel2 owl-theme owl-reponsive-0 owl-reponsive-600 owl-reponsive-1000">
+    <div class="item"><img class="img img-responsive" src="images/harry.jpg" alt="Image XYZ">  </div>
+    <div class="item"><img class="img img-responsive" src="images/harry1.jpg" alt="Image XYZ"> </div>
+    <div class="item"><img class="img img-responsive" src="images/harry2.jpg" alt="Image XYZ"> </div>
+    <div class="item"><img class="img img-responsive" src="images/harry3.jpg" alt="Image XYZ"> </div>
+    <div class="item"><img class="img img-responsive" src="images/harry4.jpg" alt="Image XYZ"> </div>
+    <div class="item"><img class="img img-responsive" src="images/harry5.jpg" alt="Image XYZ"> </div>
+    <div class="item"><img class="img img-responsive" src="images/harry7.jpg" alt="Image XYZ"> </div>
+</div> -->
+    <!-- Owl carousel2 ends -->
+
+<!-- <div class="container">    
+    <div class="owl-carousel1 owl-theme owl-reponsive-0 owl-reponsive-600 owl-reponsive-1000">
+        <div class="item">
+            <div class="row">
+                <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12">
+                    <img class="img img-responsive" src="images/harry.jpg" alt="Image XYZ">
+                </div>
+                <div class="col-lg-7 col-sm-7 col-md-7 col-xs-12">
+                    <p class="text-info">
+                        Lord Voldemort (/ˈvoʊldəmɔːr/;[1][2] /-mɔːrt/ in the films; born Tom Marvolo Riddle) is a fictional character and the main
+                        antagonist in J. K. Rowling's series of Harry Potter novels. Voldemort first appeared in Harry Potter and the Philosopher's
+                        Stone, which was released in 1997. Voldemort appears either in person or in flashbacks in each book and its film adaptation
+                        in the series, except the third, Harry Potter and the Prisoner of Azkaban, where he is only mentioned.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <img class="img img-responsive" src="images/harry1.jpg" alt="Image XYZ">
+                </div>
+                <div class="col-lg-7  col-md-7 col-sm-7 col-xs-12">
+                    <p class="text-info">
+                        Lord Voldemort (/ˈvoʊldəmɔːr/;[1][2] /-mɔːrt/ in the films; born Tom Marvolo Riddle) is a fictional character and the main
+                        antagonist in J. K. Rowling's series of Harry Potter novels. Voldemort first appeared in Harry Potter and
+                        the Philosopher's Stone, which was released in 1997. Voldemort appears either in person or in flashbacks
+                        in each book and its film adaptation in the series, except the third, Harry Potter and the Prisoner of Azkaban,
+                        where he is only mentioned.
+                    </p>
+                </div>
+            </div>
+        </div>            
+    </div>    
+</div> -->
+
+
+<section class="quotes-carousel owl-carousel owl-theme" style="margin-top:65px;">
+    <div class="item text-center">
+        <div class="container text-center" style="background-image:url('images/img_bg.jpg'); color:white;">
+            <div class="row">
+            <h3 class="blockquote blockquote_center">
+                Bright Images
+            </h3>
+            </div>
+        </div>
     </div>
+    <div class="item text-center">
+        <div class="container text-center" style="background-image:url('images/background.jpg'); color:white;">
+            <div class="row">          
+            <h3 class="blockquote blockquote_center" >
+                Panorama Images
+            </h3>
+            </div>
+        </div>
+    </div>
+    <div class="item text-center">
+        <div class="container text-center" style="background-image:url('images/desert.jpg'); color:white;">
+            <div class="row">            
+            <h3 class="blockquote blockquote_center">
+                Wide Range of Camera
+            </h3>
+            </div>
+        </div>
+    </div>
+    <div class="item text-center">
+        <div class="container text-center" style="background-image:url('images/mountain.jpg'); color:white;">
+            <div class="row">            
+            <h3 class="blockquote blockquote_center">
+                Great resolution
+            </h3>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 

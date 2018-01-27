@@ -1,0 +1,19 @@
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+
+$(document).ready(function () {
+    var apple = {
+        type:"mac",
+        color:"red",
+        getInfo:function () {
+            return this.color + ' ' + this.type + ' Apple';
+        }
+    }
+
+    console.log(apple.color);
+    apple.color = "green";
+    document.write("Output:  ");
+    document.write(apple.getInfo() + '<br>'); 
+    console.log(apple.color);   
+});
+</script>
