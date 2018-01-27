@@ -2,17 +2,27 @@
 <html lang="en">
 
 <head>
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/dist/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-2.2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/custom.css">
-    <title> Zenfone </title>
+    <script src="owlcarousel/dist/owl.carousel.min.js"></script>
+    
+      
+    <title> Product List </title>
 </head>
 
 <body class="bg">
     <script src="js/custom.js"></script>
+     <script>
+        $(document).ready(function () { $(".owl-carousel").owlCarousel(); });
+
+    </script>
 
     <nav class="navbar navbar-default navbar-fixed-top" id="main_nav" role="navigation">
         <div class="container">
@@ -77,12 +87,33 @@
     </div>
     <!-- Modal end -->
 
-    <div class="jumbotron text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:50px">
+    <!-- <div class="jumbotron text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:50px">
       
         <p class="text-center">Coming Soon.......</p>
       
     </div>
-    <!--Jumbotron ends-->
+    Jumbotron ends -->
+    <div class="conatiner" style="margin-top:50px;">
+        <div class="panel panel-primary">
+
+            <div class="panel-heading"> <h1>Product List</h1> </div>
+            <div class="panel-body">
+                A basic panel A basic panel A basic panel A basic panel A basic panel</div>
+
+            <div class="panel-footer"> XYZssss </div>
+        </div>
+    </div>
+
+    <div class="owl-carousel">
+        <div> <img class="img img-responsive" src="images/harry.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry1.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry2.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry3.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry4.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry5.jpg" alt="Image XYZ"> </div>
+        <div> <img class="img img-responsive" src="images/harry7.jpg" alt="Image XYZ"> </div>
+    </div>
+
 </body>
 
 </html>
