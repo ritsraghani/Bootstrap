@@ -331,7 +331,7 @@ color:#555;
 .quotes-carousel .item .container .row{
   height:300px;
   background-color: black;
-  opacity:0.6;
+  opacity:0.3;
 }
 
 .quotes-carousel .item .container .row .blockquote_center{
@@ -358,7 +358,7 @@ color:#555;
     /* height: 100px; */
     position: absolute;
     top: 40%;
-    right: 60px;
+    right: 65px;
     display: block!IMPORTANT;
     /* border:0px solid black; */
     background: none !important;

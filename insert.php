@@ -9,7 +9,7 @@ echo $emmobile = $data->mobile;
 echo $emsalary = $data->salary;
 echo $emcity = $data->city;
 
-$con = mysqli_connect ('localhost','root','');
+$con = mysqli_connect ('localhost','root','root');
 mysqli_select_db($con,'angularjs');
 
 echo $sql= "insert into employee (employee_name,dob,email,mobile_no,salary,city) 
@@ -21,12 +21,5 @@ if(!$result)
 {
     die("Query Failed".mysqli_error($con));
 }
-// while($row=mysqli_fetch_assoc($result))
-// {
-//     $myJSON[]=$row;
-// }
 
-
-// $a=json_encode($myJSON);
-// print_r($a);
 ?>
